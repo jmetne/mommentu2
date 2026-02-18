@@ -361,7 +361,7 @@ function AdminAgenda({ events, onEventClick }) {
             const isToday = day.toDateString() === new Date().toDateString();
             return (
               <div key={day.toString()} style={{padding:'6px',minHeight:'100px',background:isCurrentMonth?'#1e1e1e':'#121212',display:'flex',flexDirection:'column'}}>
-                <span style={{fontSize:'14px',color:isCurrentMonth?'white':'#555',background:isToday?'#f9b248':'transparent',color:isToday?'#1a1a1a':undefined,width:isToday?'26px':'auto',height:isToday?'26px':'auto',borderRadius:'50%',display:'flex',alignItems:'center',justifyContent:'center',fontWeight:isToday?600:400}}>
+                <span style={{fontSize:'14px',color:isToday?'#1a1a1a':(isCurrentMonth?'white':'#555'),background:isToday?'#f9b248':'transparent',width:isToday?'26px':'auto',height:isToday?'26px':'auto',borderRadius:'50%',display:'flex',alignItems:'center',justifyContent:'center',fontWeight:isToday?600:400}}>
                   {day.getDate()}
                 </span>
                 <div style={{marginTop:'4px',overflow:'hidden',flex:1}}>
@@ -1126,7 +1126,7 @@ function PackagesView({ onPackageSelected, onBack, eventOfferings }) {
       <Card>
         <div style={{display:'grid',gridTemplateColumns:'repeat(3,1fr)',gap:'16px'}}>
           {offering.packages.map(pkg => (
-            <div key={pkg.id} style={{background:'#121212',padding:'20px',borderRadius:'10px',border:'1px solid rgba(255,255,255,0.15)',display:'flex',flexDirection:'column'}}
+            <div key={pkg.id}
               onMouseEnter={e=>e.currentTarget.style.borderColor='#f9b248'} onMouseLeave={e=>e.currentTarget.style.borderColor='rgba(255,255,255,0.15)'} style={{background:'#121212',padding:'20px',borderRadius:'10px',border:'1px solid rgba(255,255,255,0.15)',display:'flex',flexDirection:'column',transition:'border-color 0.2s'}}>
               <h3 style={{fontSize:'18px',color:'#f9b248',fontWeight:400,marginBottom:'8px'}}>{pkg.name}</h3>
               <p style={{fontSize:'28px',fontWeight:600,color:'white',marginBottom:'12px'}}>{pkg.price.toLocaleString('pt-BR',{style:'currency',currency:'BRL'})}</p>
